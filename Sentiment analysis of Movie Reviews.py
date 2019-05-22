@@ -194,6 +194,9 @@ print(nltk.classify.util.accuracy(ME, positive_features[:split]+negative_feature
 print(nltk.classify.util.accuracy(ME, positive_features[split:]+negative_features[split:])*100)
 # ME.show_most_informative_features()
 
+print('Testing for manual input')
 tests={'its a good movie storyline best compared to story':'neg'}
 test_features=[(build_bag_of_words_features_filtered_lem(each.split()),tests[each]) for each in tests.keys()]
-print(nltk.classify.util.accuracy(NB, test_features)*100)
+for each in tests.keys():
+    print(tests[each],':',each)
+print('Accuracy:',nltk.classify.util.accuracy(NB, test_features)*100)
